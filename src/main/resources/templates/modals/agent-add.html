@@ -1,0 +1,87 @@
+<div class="modal fade" id="modalAgentAdd" tabindex="-1" role="dialog" aria-labelledby="modalAgentAddTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAgentAddTitle">Add new agent</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" novalidate>
+                    <div class="form-group">
+                        <label for="modalAgentAdd_name">Name *</label>
+                        <input type="text" class="form-control" id="modalAgentAdd_name" name="name" minlength="3" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalAgentAdd_description">Description</label>
+                        <textarea type="text" class="form-control" id="modalAgentAdd_description" name="description" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-12 col-lg-4">
+                            <label class="w-100" for="modalAgentAdd_hostname">Host name *
+                                <i class="fas fa-info-circle float-right" data-toggle="tooltip" data-placement="top" title="Hostname ili IP za Raspberry Pi na lokalnoj mreži."></i>
+                            </label>
+                            <input type="text" class="form-control" id="modalAgentAdd_hostname" name="hostname" minlength="3" value="iot-mas-agent-" required>
+                        </div>
+                        <div class="form-group col-md-12 col-lg-4">
+                            <label class="w-100" for="modalAgentAdd_username">Username *
+                                <i class="fas fa-info-circle float-right" data-toggle="tooltip" data-placement="top" title="Korisničko ime administratora na Raspberry Pi uređaju."></i>
+                            </label>
+                            <input type="text" class="form-control" id="modalAgentAdd_username" name="username" minlength="2" value="pi" required>
+                        </div>
+                        <div class="form-group col-md-12 col-lg-4">
+                            <label for="modalAgentAdd_password">Password *</label>
+                            <input type="password" class="form-control" id="modalAgentAdd_password" name="password" minlength="3" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-12 col-lg-6">
+                            <label class="w-100" for="modalAgentAdd_script">Agent script *
+                                <i class="fas fa-info-circle float-right" data-toggle="tooltip" data-placement="top" title="Python datoteke iz Git repozitorija."></i>
+                            </label>
+                            <select class="form-control available-agent-scripts" id="modalAgentAdd_script" data-url="/api/v1/agent/available-agents" name="script" autocomplete="on">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-12 col-lg-6">
+                            <label for="modalAgentAdd_wgiPort">WGI Port</label>
+                            <input type="text" class="form-control" id="modalAgentAdd_wgiPort" name="wgiPort" value="10000">
+                        </div>
+                    </div>
+
+                    <h6>XMPP details</h6>
+                    <div class="form-row">
+                        <div class="form-group col-md-12 col-lg-4">
+                            <label class="w-100" for="modalAgentAdd_xmppHostname">Hostname *
+                                <i class="fas fa-info-circle float-right" data-toggle="tooltip" data-placement="top" title="Hostname ili IP XMPP OpenFire poslužitelja."></i>
+                            </label>
+                            <input type="text" class="form-control" id="modalAgentAdd_xmppHostname" name="xmppHostname" minlength="3" value="iot-mas-server.hr" required>
+                        </div>
+                        <div class="form-group col-md-12 col-lg-4">
+                            <label class="w-100" for="modalAgentAdd_name">JID *
+                                <i class="fas fa-info-circle float-right" data-toggle="tooltip" data-placement="top" title="Proizvoljni JID agenta."></i>
+                            </label>
+                            <input type="text" class="form-control" id="modalAgentAdd_jid" name="jid" minlength="3" required>
+                        </div>
+                        <div class="form-group col-md-12 col-lg-4">
+                            <label for="modalAgentAdd_xmppPassword">Password *</label>
+                            <input type="password" class="form-control" id="modalAgentAdd_xmppPassword" name="xmppPassword" minlength="3" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="w-100" for="modalAgentAdd_additionalData">Additional data (JSON)
+                            <i class="fas fa-info-circle float-right" data-toggle="tooltip" data-placement="top" title="Dodatni proizvoljni podaci koji se proslijeđuju agentu za ostvarivanje njegove funkcionalnosti."></i>
+                        </label>
+                        <textarea type="text" class="form-control" id="modalAgentAdd_additionalData" name="additionalData" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="modalAgentAdd_create" type="button" class="btn btn-primary">Add agent</button>
+                <button type="button" class="btn btn-secondary btn-action-close" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

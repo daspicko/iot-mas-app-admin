@@ -1,0 +1,89 @@
+<div class="modal fade" id="modalAgentDetails" tabindex="-1" role="dialog" aria-labelledby="modalAgentDetailsTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAgentDetailsTitle">Agent details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row mx-1">
+                    <div class="col-10">
+                        <form class="needs-validation" novalidate>
+                            <div class="form-row">
+                                <div class="form-group col-md-12 col-lg-4">
+                                    <label for="modalAgentDetails_id">Agent ID</label>
+                                    <input type="text" readonly class="form-control" id="modalAgentDetails_id" name="id">
+                                </div>
+                                <div class="form-group col-md-12 col-lg-4">
+                                    <label for="modalAgentDetails_name">Agent name</label>
+                                    <input type="text" class="form-control" id="modalAgentDetails_name" name="name" required minlength="3">
+                                </div>
+                                <div class="form-group col-md-12 col-lg-4">
+                                    <label for="modalAgentDetails_script">Agent script</label>
+                                    <select class="form-control available-agent-scripts" id="modalAgentDetails_script" name="script" data-url="/api/v1/agent/available-agents" autocomplete="off">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12 col-lg-4">
+                                    <label for="modalAgentDetails_hostname">Host name *</label>
+                                    <input type="text" class="form-control" id="modalAgentDetails_hostname" name="hostname" minlength="3" required>
+                                </div>
+                                <div class="form-group col-md-12 col-lg-4">
+                                    <label for="modalAgentDetails_username">Username *</label>
+                                    <input type="text" class="form-control" id="modalAgentDetails_username" name="username" minlength="2" required>
+                                </div>
+                                <div class="form-group col-md-12 col-lg-4">
+                                    <label for="modalAgentDetails_password">Password *</label>
+                                    <input type="password" class="form-control" id="modalAgentDetails_password" name="password" minlength="3" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12 col-lg-4">
+                                    <label for="modalAgentDetails_xmppHostname">Hostname</label>
+                                    <input type="text" class="form-control" id="modalAgentDetails_xmppHostname" name="xmppHostname" minlength="3" required>
+                                </div>
+                                <div class="form-group col-md-12 col-lg-4">
+                                    <label for="modalAgentDetails_jid">JID</label>
+                                    <input type="text" class="form-control" id="modalAgentDetails_jid" name="jid" minlength="3" required>
+                                </div>
+                                <div class="form-group col-md-12 col-lg-4">
+                                    <label for="modalAgentDetails_xmppPassword">XMPP Password</label>
+                                    <input type="password" class="form-control" id="modalAgentDetails_xmppPassword" name="xmppPassword" minlength="3" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modalAgentDetails_wgiPort">WGI Port</label>
+                                <input type="text" class="form-control" id="modalAgentDetails_wgiPort" name="wgiPort">
+                            </div>
+                            <div class="form-group">
+                                <label for="modalAgentDetails_description">Agent description</label>
+                                <textarea type="text" class="form-control" id="modalAgentDetails_description" name="description" rows="3" ></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="modalAgentDetails_additionalData">Additional data (JSON)</label>
+                                <textarea type="text" class="form-control" id="modalAgentDetails_additionalData" name="additionalData" rows="3"></textarea>
+                            </div>
+                            <input id="agent-run-command" style="display: none;" type="text" />
+                        </form>
+                    </div>
+                    <div class="col-2 rounded border border-dark">
+                        <a id="modalAgentDetails_web_console" href="#" target="_blank" type="button" class="btn btn-outline-secondary m-1 w-100 my-3"><span class="oi oi-pulse"></span> Web Console</a>
+                        <a id="modalAgentDetails_start" type="button" class="btn btn-outline-success m-1 w-100"><span class="oi oi-media-play"></span> Start</a>
+                        <a id="modalAgentDetails_stop" type="button" class="btn btn-outline-warning m-1 w-100"><span class="oi oi-media-stop"></span> Stop</a>
+                        <a id="modalAgentDeleteButton" type="button" class="btn btn-outline-danger m-1 w-100 mt-5" data-toggle="modal" data-target="#modalAgentDeleteConfirmation"><span class="oi oi-trash"></span> Delete</a>
+                        <button id="copy-run-command" onclick="copyToClipboard()" type="button" class="btn btn-outline-info m-1 w-100 mt-5"><span class="oi oi-copy"></span> Copy command</button>
+
+                        <p class="mt-5"> <span class="agent-status"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="modalAgentDetails_update" type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

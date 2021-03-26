@@ -1,0 +1,25 @@
+<div class="modal fade" id="modalAgentDeleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="modalAgentDeleteConfirmationTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAgentDeleteConfirmationTitle">Are you sure you want to delete agent?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>To delete agent <strong id="modalAgentDeleteConfirmation_namedisplay">Cluster 1</strong> please enter name</p>
+                <form class="needs-validation" novalidate>
+                    <input type="text" class="form-control" id="modalAgentDeleteConfirmation_name" required minlength="3">
+                    <div class="invalid-feedback">
+                        Required field.
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="modalAgentDeleteConfirmation_delete" type="button" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary btn-action-close" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

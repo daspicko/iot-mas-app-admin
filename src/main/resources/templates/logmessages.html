@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>View log messages</title>
+</head>
+<body>
+
+<div id="log-message-container">
+</div>
+
+<script th:src="@{js/lib/jquery-3.4.1.min.js}"></script>
+<script>
+    setTimeout(showData, 2000);
+
+    const renderLogs = (logs) => {
+        let $logMessageContainer = $("#log-message-container");
+        $logMessageContainer.empty();
+        logs.reverse().slice(0,50).forEach(log => {
+            $logMessageContainer.append(`<p style="margin: 0 0;">${log}</p>`)
+        });
+    }
+
+    function showData() {
+        $(document).ready(function () {
+            $.get("/api/v1/log/print", function (response) {
+                renderLogs(response);
+                setTimeout(showData, 2000);
+            })
+        });
+    }
+
+</script>
+</body>
+</html>
